@@ -7,11 +7,7 @@ interface Item  {
 }
 
 export const TodoList: React.FC = () => {
-  const [todos, setTodos] = useState<Item[]>([
-    // temp values
-    // {id: 1, text: "learn typescript", completed: false},
-    // {id: 2, text: "test", completed: false},
-  ])
+  const [todos, setTodos] = useState<Item[]>([])
   const [input, setInput] = useState<string>("");
 
   const saveTodos = (todos: Item[]) => {
@@ -33,6 +29,7 @@ export const TodoList: React.FC = () => {
     const newTodo: Item = {id: Date.now(), text: input, completed: false}
     setTodos([ ...todos, newTodo ])
     saveTodos([ ...todos, newTodo ])
+    setInput("")
     console.log(newTodo)
     console.log(todos)
   }
@@ -57,11 +54,14 @@ export const TodoList: React.FC = () => {
         </li>
       ))}
     </ul>
-    <input
-      type='text'
-      placeholder='Add todo item'
-      onChange={(e) => setInput(e.currentTarget.value)}
-    />
-    <button onClick={handleClick}>Add</button>
+    <form>
+      <input
+        type='text'
+        placeholder='Add todo item'
+        value={input}
+        onChange={(e) => setInput(e.currentTarget.value)}
+      />
+      <button type='submit' onClick={handleClick}>Add</button>
+    </form>
   </div>
 }
