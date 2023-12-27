@@ -32,6 +32,11 @@ export const TodoList: React.FC = () => {
     saveTodos(newTodos)
   }
 
+  const handleReset = () => {
+    localStorage.clear()
+    setTodos([])
+  }
+
   const handleClick = () => {
     const newTodo: Item = {id: Date.now(), text: input, completed: false}
     setTodos([ ...todos, newTodo ])
@@ -83,6 +88,13 @@ export const TodoList: React.FC = () => {
         onClick={handleClick}
       >
         Add
+      </button>
+      <button
+        className="resetButton"
+        type="reset"
+        onClick={handleReset}
+      >
+        Clear
       </button>
     </form>
   </div>

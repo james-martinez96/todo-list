@@ -44,7 +44,7 @@ span {
 .addButton {
   height: 30px;
   width: 60px;
-  background-color: blue;
+  background-color: green;
   color: white;
   font-size: 1.05rem;
   margin-top: 10px;
@@ -68,5 +68,15 @@ span {
   background-color: red;
   color: white;
   font-size: 1.05rem;
+  cursor: pointer;
+}
+
+.resetButton {
+  height: 30px;
+  width: 60px;
+  background-color: blue;
+  color: white;
+  font-size: 1.05rem;
+  margin-top: 10px;
   cursor: pointer;
 }
