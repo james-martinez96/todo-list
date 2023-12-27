@@ -25,6 +25,12 @@ export const TodoList: React.FC = () => {
     )
   }
 
+  const handleDelete = (id: number) => {
+    const newTodos = todos.filter((todo) => todo.id !== id)
+    setTodos(newTodos)
+    saveTodos(newTodos)
+  }
+
   const handleClick = () => {
     const newTodo: Item = {id: Date.now(), text: input, completed: false}
     setTodos([ ...todos, newTodo ])
@@ -45,23 +51,37 @@ export const TodoList: React.FC = () => {
     <h1>Todo List</h1>
     <ul>
       {todos.map((todo) => (
-        <li
-          key={todo.id}
-          onClick={() => handleToggle(todo.id)}
-          style={{textDecoration: todo.completed ? "line-through" : "none"}}
-        >
-          {todo.text}
+        <li key={todo.id}>
+          <span
+            onClick={() => handleToggle(todo.id)}
+            style={{textDecoration: todo.completed ? "line-through" : "none"}}
+          >
+            {todo.text}
+          </span>
+          <button
+            className='deleteButton'
+            onClick={() => handleDelete(todo.id)}
+          >
+            Del
+          </button>
         </li>
       ))}
     </ul>
     <form>
       <input
+        className='input'
         type='text'
         placeholder='Add todo item'
         value={input}
         onChange={(e) => setInput(e.currentTarget.value)}
       />
-      <button type='submit' onClick={handleClick}>Add</button>
+      <button
+        className='addButton'
+        type='submit'
+        onClick={handleClick}
+      >
+        Add
+      </button>
     </form>
   </div>
 }

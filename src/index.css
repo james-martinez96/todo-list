@@ -29,10 +29,20 @@ li {
   margin-top: 15px;
 }
 
-button {
+.addButton {
   height: 30px;
   width: 60px;
   background-color: blue;
+  color: white;
+  font-size: 1.05rem;
+  margin-top: 10px;
+  cursor: pointer;
+}
+
+.deleteButton {
+  height: 30px;
+  width: 60px;
+  background-color: red;
   color: white;
   font-size: 1.05rem;
   margin-top: 10px;
