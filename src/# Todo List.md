@@ -5,6 +5,7 @@ This is a simple Todo List application built with React and TypeScript.
 ## Features
 
 - Add new todo items
+- Delete todo items
 - Mark todo items as completed
 - Persist todo items in local storage
 
@@ -36,7 +37,7 @@ npm install
 npm run dev
 ```
 
-4. Open [http://localhost:3000](http://localhost:3000) to view the app in your browser.
+4. Open [http://localhost:5173](http://localhost:5173) to view the app in your browser.
 
 ## Contributing
 
