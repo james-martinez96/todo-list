@@ -26,11 +26,19 @@ input {
 }
 
 li {
-  margin-top: 15px;
+  counter-increment: h3;
+  margin: 15px;
+}
+li::marker {
+  display: list-item;
+  content: "#" counter(h3) " ";
+  color: #000;
+  font-weight: bold;
 }
 
 span {
   margin-right: 40px;
+  margin-left: 5px;
 }
 
 .addButton {
@@ -54,6 +62,7 @@ span {
   height: 22px;
   cursor: pointer; */
 
+  display: list-item;
   height: 30px;
   width: 60px;
   background-color: red;
