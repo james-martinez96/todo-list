@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+// import deleteSVG from './assets/icons8-x-64.png'
 
 interface Item  {
   id: number;
@@ -61,8 +62,9 @@ export const TodoList: React.FC = () => {
           <button
             className='deleteButton'
             onClick={() => handleDelete(todo.id)}
-          >
-            Del
+          >  
+            {/* <img className='deleteButton' src={deleteSVG} alt='delete' /> */}
+            Delete
           </button>
         </li>
       ))}

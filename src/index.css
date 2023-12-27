@@ -29,6 +29,10 @@ li {
   margin-top: 15px;
 }
 
+span {
+  margin-right: 40px;
+}
+
 .addButton {
   height: 30px;
   width: 60px;
@@ -40,11 +44,20 @@ li {
 }
 
 .deleteButton {
+  /* display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background-color: #f00;
+  color: #fff;
+  width: 22px;
+  height: 22px;
+  cursor: pointer; */
+
   height: 30px;
   width: 60px;
   background-color: red;
   color: white;
   font-size: 1.05rem;
-  margin-top: 10px;
   cursor: pointer;
 }
