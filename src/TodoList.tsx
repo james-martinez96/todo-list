@@ -50,6 +50,8 @@ export const TodoList: React.FC = () => {
     const storedTodos = localStorage.getItem("todos")
     if (storedTodos) {
       setTodos(JSON.parse(storedTodos))
+    } else {
+      setTodos([]) // Set todos to an empty array if there are no todos in local storage
     }
   }, [])
 
