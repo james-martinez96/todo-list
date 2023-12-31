@@ -37,7 +37,8 @@ export const TodoList: React.FC = () => {
     setTodos([])
   }
 
-  const handleClick = () => {
+  const handleClick = (event: React.FormEvent) => {
+    event.preventDefault()
     const newTodo: Item = {id: Date.now(), text: input, completed: false}
     setTodos([ ...todos, newTodo ])
     saveTodos([ ...todos, newTodo ])
