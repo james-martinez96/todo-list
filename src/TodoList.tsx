@@ -16,13 +16,23 @@ export const TodoList: React.FC = () => {
   }
 
   const handleToggle = (id: number) => {
-  setTodos(
-      todos.map((todo) => {
-        if (todo.id === id) {
-          return { ...todo, completed: !todo.completed };
+    setTodos(
+        todos.map((todo) => {
+          if (todo.id === id) {
+            return { ...todo, completed: !todo.completed };
+          }
+          return todo;
         }
-        return todo;
-      })
+      )
+    )
+    saveTodos(
+        todos.map((todo) => {
+          if (todo.id === id) {
+            return { ...todo, completed: !todo.completed };
+          }
+          return todo;
+        }
+      )
     )
   }
 
