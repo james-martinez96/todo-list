@@ -57,8 +57,8 @@ export const TodoList: React.FC = () => {
   }, [])
 
   return <div className='main-container'>
-    <h1>Todo List</h1>
-    <ul>
+    <h1 className="Card">Todo List</h1>
+    <ul className="Card">
       {todos.map((todo) => (
         <li key={todo.id}>
           <span
@@ -77,7 +77,7 @@ export const TodoList: React.FC = () => {
         </li>
       ))}
     </ul>
-    <form>
+    <form className="Card">
       <input
         className='input'
         type='text'
