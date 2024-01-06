@@ -53,8 +53,6 @@ export const TodoList: React.FC = () => {
     setTodos([ ...todos, newTodo ])
     saveTodos([ ...todos, newTodo ])
     setInput("")
-    console.log(newTodo)
-    console.log(todos)
   }
 
   useEffect(() => {
