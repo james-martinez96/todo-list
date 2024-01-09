@@ -9,7 +9,7 @@ interface Item {
 export const TodoList: React.FC = () => {
   const [todos, setTodos] = useState<Item[]>([]);
   const [input, setInput] = useState<string>("");
-
+  const [editingTodo, setEditingTodo] = useState<Item | null>(null);
   const saveTodos = (todos: Item[]) => {
     localStorage.setItem("todos", JSON.stringify(todos));
   };
@@ -24,6 +24,23 @@ export const TodoList: React.FC = () => {
     setTodos(updatedTodos);
     saveTodos(updatedTodos);
     console.log(updatedTodos);
+  };
+
+  const handleEdit = (id: number) => {
+    const todo = todos.find((todo) => todo.id === id);
+    setEditingTodo(todo || null);
+  };
+
+  const handleUpdate = (id: number, text: string) => {
+    const updatedTodos = todos.map((todo) => {
+      if (todo.id === id) {
+        return { ...todo, text };
+      }
+      return todo;
+    });
+    setTodos(updatedTodos);
+    setEditingTodo(null);
+    saveTodos(updatedTodos);
   };
 
   const handleDelete = (id: number) => {
@@ -60,16 +77,30 @@ export const TodoList: React.FC = () => {
       <h1 className="Card">Todo List</h1>
       <ul className="Card">
         {todos.map((todo) => (
-          <li key={todo.id}>
-            <span
-              onClick={() => handleToggle(todo.id)}
-              style={{
-                textDecoration: todo.completed ? "line-through" : "none",
-                color: todo.completed ? "red" : "black",
-              }}
+          <li key={todo.id} className={todo.completed ? "completed" : ""}>
+            {editingTodo?.id === todo.id ? (
+              <input
+                type="text"
+                value={editingTodo.text}
+                onChange={(e) =>
+                  setEditingTodo({
+                    ...editingTodo,
+                    text: e.currentTarget.value,
+                  })
+                }
+                onBlur={() => handleUpdate(todo.id, editingTodo.text)}
+              />
+            ) : (
+              <span onClick={() => handleToggle(todo.id)}>
+                <p>{todo.text}</p>
+              </span>
+            )}
+            <button
+              className="editButton"
+              onClick={() => handleEdit(todo.id)}
             >
-              <p>{todo.text}</p>
-            </span>
+              Edit
+            </button>
             <button
               className="deleteButton"
               onClick={() => handleDelete(todo.id)}

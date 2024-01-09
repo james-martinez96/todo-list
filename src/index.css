@@ -22,6 +22,12 @@ body::before {
   height: 100vh;
 }
 
+.completed {
+  text-decoration: line-through;
+  text-decoration-color: black;
+  text-decoration-thickness: 5px;
+}
+
 .Card {
   display: flex;
   flex-direction: column;
