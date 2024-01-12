@@ -75,7 +75,7 @@ export const TodoList: React.FC = () => {
   return (
     <div className="main-container">
       <h1 className="Card">Todo List</h1>
-      <ul className="Card">
+      <ul className="Card-Grid">
         {todos.map((todo) => (
           <li key={todo.id} className={todo.completed ? "completed" : ""}>
             {editingTodo?.id === todo.id ? (
@@ -95,18 +95,20 @@ export const TodoList: React.FC = () => {
                 <p>{todo.text}</p>
               </span>
             )}
-            <button
-              className="editButton"
-              onClick={() => handleEdit(todo.id)}
-            >
-              Edit
-            </button>
-            <button
-              className="deleteButton"
-              onClick={() => handleDelete(todo.id)}
-            >
-              Delete
-            </button>
+            <div>
+              <button
+                className="editButton"
+                onClick={() => handleEdit(todo.id)}
+              >
+                Edit
+              </button>
+              <button
+                className="deleteButton"
+                onClick={() => handleDelete(todo.id)}
+              >
+                Delete
+              </button>
+            </div>
           </li>
         ))}
       </ul>
