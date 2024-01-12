@@ -10,6 +10,7 @@ export const TodoList: React.FC = () => {
   const [todos, setTodos] = useState<Item[]>([]);
   const [input, setInput] = useState<string>("");
   const [editingTodo, setEditingTodo] = useState<Item | null>(null);
+
   const saveTodos = (todos: Item[]) => {
     localStorage.setItem("todos", JSON.stringify(todos));
   };
